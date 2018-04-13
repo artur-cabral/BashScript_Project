@@ -1,0 +1,28 @@
+#!/bin/bash
+echo "============================================================"
+echo "Author: Artur Cabral"
+echo "running animatedGif script File..."
+#Summary: The goal for this script is to transform .gif pictures into one animated gif
+# taking the arguments given by the user for the name, the starting number, and the ending
+# number of the pictures sequence that will become a animated gif
+
+# prompt the user to give the animated gif a name:
+echo "Give a name to your animated gif:"
+read gifName
+#assign the arguments to the correct variable names
+name=$1
+number1=$2
+number2=$3
+# make an animated gif out of the first image
+convert $name*.gif $gifName.gif
+# do the same for the other ones
+for((i=(number1+1);i<(number2+1);i++))
+do
+	convert $gifName.gif $name$i.gif temp.gif
+	convert temp.gif $gifName.gif
+done
+# let the user know the animated gif is ready
+echo "Your $name animated gif is now available as $gifName.gif!"
+
+echo "============================================================"
+

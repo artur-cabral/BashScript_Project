@@ -1,0 +1,18 @@
+#!/bin/bash
+echo "====================================================="
+echo "Author: Artur Cabral"
+#Summary: the goal for this script is to convert a large amount of pictures
+#from .jpg format into .gif all in one command by the user
+echo "running bulkConvertJPG2GIF script file..."
+#assign all three arguments to the correct variable names
+name=$1 #name of the file
+number1=$2 #starting number of the series
+number2=$3 #ending number of the series
+#for loop converts the pictures one by one from the starting number until the end number
+#given by the user
+for(( i=number1; i<(number2+1) ; i++))
+do
+	convert $name$i.jpg $name$i.gif
+	printf "$name$i.jpg got converted to $name$i.gif\n"
+done
+echo "===================================================="

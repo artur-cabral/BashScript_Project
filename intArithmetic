@@ -1,0 +1,33 @@
+#!/bin/bash
+echo "======================================================"
+echo "Author: Artur Cabral"
+echo "running inArithmetic script File..."
+#Summary: the goal for this script is to prompt the user for two integers and an arithmetic
+# operation to be performed between these integers, and display it to the user
+# Prompt for first integer
+echo "Hello Human, please enter an integer and press [ENTER]:"
+read int1
+# Prompt for the second one
+echo "Now, enter another integer and press [ENTER]:"
+read int2
+# Prompt for the operation, giving a list of options
+echo "Thank you Human, now choose an operation to be performed between these integers: (0=add,1=sub,2=mult,3=div)"
+read op
+# Evaluate the input to perform one of the four arithmetic operations and display it
+	if [ $op == 0 ]; then
+		echo "ADDITION"
+		echo "$int1 + $int2 = $((int1+int2))"
+	elif [ $op == 1 ]; then
+		echo "SUBTRACTION"
+		echo "$int1 - $int2 = $((int1-int2))"
+	elif [ $op == 2 ]; then
+		echo "MULTIPLICATION"
+		echo "$int1 * $int2 = $((int1*int2))"
+	elif [ $op == 3 ]; then
+		echo "DIVISION"
+		echo "$int1 / $int2  = $((int1/int2))"
+	else
+		echo "Please choose a valid operation."
+	fi
+
+echo "========================================================"

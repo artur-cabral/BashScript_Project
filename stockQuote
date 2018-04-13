@@ -1,0 +1,15 @@
+#!/bin/bash
+echo "========================================================"
+echo "Author: Artur Cabral"
+echo "running stocksQuote script File..."
+#Summary: the goal of this script is to download the current trading price of the aapl share
+#and display it to the user.
+#Download the number and put into stocks.csv
+wget -q -O stocks.csv "http://download.finance.yahoo.com/d/quotes.csv?s=aapl&f=l1&e=.csv"
+#read the newly created file that contains the number and display to the user
+while read line
+do
+echo "aapl is currently trading at $line dollars per share"
+done <stocks.csv
+
+echo "========================================================"
